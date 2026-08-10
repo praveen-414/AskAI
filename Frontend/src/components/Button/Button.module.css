@@ -1,0 +1,21 @@
+.btn {
+  width: 100%;
+  outline: none;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--button-text);
+  background-color: var(--primary);
+  font-size: 1.1rem;
+  transition: 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: var(--hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.btn:active {
+  transform: scale(0.95);
+}

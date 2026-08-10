@@ -1,0 +1,440 @@
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100vh;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.messageContainer .heading {
+  padding: 15px 30px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.messageContainer .heading h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.messageContainer .messages {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.messageContainer > .inputContainer {
+  width: calc(100% - 30px);
+  max-width: 900px;
+  height: 58px;
+  margin: 10px auto;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px 6px 4px 15px;
+  background: var(--card);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.messageContainer > .inputContainer:focus-within {
+  border-color: var(--primary);
+}
+
+.messageContainer > .inputContainer input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 13px 10px;
+  font-size: 1rem;
+}
+
+.emptyContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px 40px 30px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.welcomeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.welcomeIcon img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.welcomeSection h1 {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 650;
+  letter-spacing: -1px;
+  color: #18181b;
+  text-align: center;
+}
+
+.welcomeSection p {
+  margin: 12px 0 0;
+  font-size: 16px;
+  color: #71717a;
+  text-align: center;
+}
+
+.suggestions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 55px;
+  margin-bottom: 20px;
+}
+
+.suggestions li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 12px 17px;
+  border: 1px solid #e4e4e7;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #27272a;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.025);
+}
+
+.suggestions li span {
+  color: #7c3aed;
+  font-size: 18px;
+}
+
+.suggestions li:hover {
+  border-color: #c4b5fd;
+  background: #faf5ff;
+  color: #6d28d9;
+  transform: translateY(-1px);
+}
+
+.homeInputContainer {
+  width: 100%;
+  max-width: 900px;
+  margin-top: auto;
+  box-sizing: border-box;
+}
+
+.homeInputContainer .inputContainer {
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 8px 9px 8px 22px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #ddd6fe;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.08);
+  transition: 0.2s ease;
+}
+
+.homeInputContainer .inputContainer:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.14);
+}
+
+.homeInputContainer input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #18181b;
+  font-size: 16px;
+}
+
+.homeInputContainer input::placeholder {
+  color: #a1a1aa;
+}
+
+.sendIcon {
+  width: 46px;
+  height: 46px;
+  margin: 3px 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #7c3aed;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.sendIcon:hover {
+  background: #6d28d9;
+  transform: scale(1.04);
+}
+
+.sendIcon:active {
+  transform: scale(0.96);
+}
+
+.disclaimer {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #a1a1aa;
+}
+
+.aiLoading {
+  margin-left: 15px;
+  color: var(--primary);
+}
+
+@media (max-width: 1024px) {
+  .messageContainer {
+    width: 80%;
+  }
+
+  .messageContainer .messages {
+    padding: 20px;
+  }
+
+  .messageContainer > .inputContainer {
+    width: calc(100% - 30px);
+  }
+
+  .homeInputContainer {
+    width: calc(100% - 40px);
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 800px) {
+  .messageContainer {
+    width: 100%;
+    height: 100dvh;
+    padding-top: 64px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .messageContainer .messages {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 15px 12px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .messageContainer > .inputContainer {
+    width: calc(100% - 24px);
+    height: 54px;
+    margin: 8px auto 6px;
+    flex: 0 0 auto;
+    padding: 4px 6px 4px 12px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+  }
+
+  .messageContainer > .inputContainer input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 7px;
+    font-size: 14px;
+  }
+
+  .messageContainer > .inputContainer .sendIcon {
+    width: 40px;
+    height: 40px;
+    margin: 3px 0;
+    flex-shrink: 0;
+  }
+
+  .emptyContainer {
+    width: 100%;
+    height: 100%;
+    padding: 30px 15px 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .welcomeSection {
+    margin-top: 40px;
+  }
+
+  .welcomeIcon img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .welcomeSection h1 {
+    font-size: 27px;
+  }
+
+  .welcomeSection p {
+    font-size: 14px;
+  }
+
+  .suggestions {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 35px;
+    gap: 8px;
+  }
+
+  .suggestions li {
+    padding: 10px 13px;
+    font-size: 13px;
+    gap: 7px;
+  }
+
+  .suggestions li span {
+    font-size: 16px;
+  }
+
+  .homeInputContainer {
+    width: 100%;
+    max-width: none;
+    margin-top: auto;
+  }
+
+  .homeInputContainer .inputContainer {
+    width: 100%;
+    height: 54px;
+    padding: 4px 6px 4px 14px;
+    border-radius: 16px;
+  }
+
+  .homeInputContainer input {
+    min-width: 0;
+    font-size: 14px;
+  }
+
+  .homeInputContainer .sendIcon {
+    width: 40px;
+    height: 40px;
+    margin: 3px 0;
+  }
+
+  .disclaimer {
+    margin: 9px 0 0;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .messageContainer {
+    width: 100%;
+    height: 100dvh;
+    padding-top: 60px;
+    padding-bottom: 6px;
+  }
+
+  .messageContainer .messages {
+    padding: 12px 10px;
+  }
+
+  .messageContainer > .inputContainer {
+    width: calc(100% - 20px);
+    height: 52px;
+    margin: 8px auto 5px;
+    padding: 4px 5px 4px 10px;
+    border-radius: 15px;
+  }
+
+  .messageContainer > .inputContainer input {
+    font-size: 13px;
+    padding: 0 6px;
+  }
+
+  .messageContainer > .inputContainer .sendIcon {
+    width: 38px;
+    height: 38px;
+    margin: 3px 0;
+  }
+
+  .emptyContainer {
+    padding: 25px 12px 12px;
+  }
+
+  .welcomeSection {
+    margin-top: 30px;
+  }
+
+  .welcomeIcon img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .welcomeSection h1 {
+    font-size: 24px;
+  }
+
+  .welcomeSection p {
+    font-size: 13px;
+  }
+
+  .suggestions {
+    margin-top: 25px;
+  }
+
+  .suggestions li {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .homeInputContainer .inputContainer {
+    height: 52px;
+    padding: 4px 5px 4px 10px;
+    border-radius: 15px;
+  }
+
+  .homeInputContainer input {
+    font-size: 13px;
+  }
+
+  .homeInputContainer .sendIcon {
+    width: 38px;
+    height: 38px;
+    margin: 3px 0;
+  }
+
+  .disclaimer {
+    font-size: 9px;
+  }
+}

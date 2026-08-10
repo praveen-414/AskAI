@@ -1,0 +1,50 @@
+.sender {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+.sender p {
+  width: fit-content;
+  max-width: 70%;
+  background-color: var(--user-bubble);
+  padding: 12px 16px;
+  border-radius: 10px 0px 10px 10px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+  .sender p {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 800px) {
+  .sender {
+    margin: 8px 0;
+  }
+
+  .sender p {
+    max-width: 80%;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 10px 0 10px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sender {
+    margin: 16px 0;
+  }
+
+  .sender p {
+    max-width: 85%;
+    padding: 9px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 10px 0 10px 10px;
+  }
+}
