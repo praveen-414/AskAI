@@ -71,6 +71,7 @@
   border: 1px solid var(--border);
   user-select: none;
   color: var(--text-primary);
+  font-size: 0.9rem;
 }
 
 .chatTitle {

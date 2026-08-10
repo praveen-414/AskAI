@@ -202,6 +202,7 @@
 
 .sendIcon:hover {
   background: var(--hover);
+  color: var(--text-primary);
   transform: scale(1.04);
 }
 

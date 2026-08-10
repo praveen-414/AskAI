@@ -3,6 +3,9 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--background);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 h1,
@@ -37,17 +40,16 @@ h3 {
   --ai-bubble: #f4f4f5;
   --text-primary: #18181b;
   --text-secondary: #71717a;
-
   --border: #e4e4e7;
   --hover: #f4f4f5;
-
+  --code-bg: #f1f5f9;
   --button-text: #ffffff;
 }
 
 /* dark mode  */
 
 .dark {
-  --background: #09090b;
+  --background: #111113;
   --sidebar: #18181b;
   --card: #27272a;
   --primary: #7c3aed;
@@ -60,4 +62,23 @@ h3 {
   --border: #3f3f46;
   --hover: #3f3f46;
   --button-text: #ffffff;
+  --code-bg: #18181b;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
 }

@@ -191,9 +191,9 @@ const Messagearea = () => {
                 placeholder="Message AskAI..."
               />
 
-              <button onClick={sendMessage} className={styles.sendIcon}>
+              <span onClick={sendMessage} className={styles.sendIcon}>
                 <IoMdSend size={21} />
-              </button>
+              </span>
             </div>
 
             <p className={styles.disclaimer}>
