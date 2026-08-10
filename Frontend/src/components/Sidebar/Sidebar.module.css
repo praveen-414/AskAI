@@ -1,7 +1,7 @@
 .sidebarContainer {
   display: flex;
   flex-direction: column;
-  background-color: var(--card);
+  background-color: var(--sidebar);
   width: 20%;
   min-width: 240px;
   height: 100vh;
@@ -35,6 +35,11 @@
   background: transparent;
   padding: 10px;
   font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.searchContainer .searchIcon {
+  color: var(--text-primary);
 }
 
 .searchContainer:focus-within {
@@ -65,6 +70,7 @@
   transition: 0.2s ease-in-out;
   border: 1px solid var(--border);
   user-select: none;
+  color: var(--text-primary);
 }
 
 .chatTitle {
@@ -74,14 +80,18 @@
 }
 
 .chat.active {
-  background-color: #ede9fe;
+  background-color: var(--active-chat-bg);
+  color: var(--active-chat-text);
   font-weight: 500;
+}
+
+.chat.active .chatTitle {
+  color: var(--active-chat-text);
 }
 
 .chat:not(.active):hover {
   background-color: var(--hover);
 }
-
 .delIcon {
   flex-shrink: 0;
 }
@@ -128,6 +138,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: var(--text-primary);
 }
 
 .userInfo p {

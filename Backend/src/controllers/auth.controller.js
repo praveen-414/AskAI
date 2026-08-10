@@ -216,7 +216,6 @@ const logout = async (req, res) => {
 
 const logoutAll = async (req, res) => {
   const { refreshToken } = req.cookies;
-  console.log(refreshToken);
 
   if (!refreshToken) {
     return res.status(400).json({

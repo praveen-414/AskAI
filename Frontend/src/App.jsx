@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   createBrowserRouter,
   Navigate,
@@ -15,10 +15,14 @@ import { MoonLoader } from "react-spinners";
 const App = () => {
   useCurrentUser();
   const { user, loading } = useSelector((state) => state.user);
+  const { theme } = useSelector((state) => state.theme);
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
   if (loading) {
     return (
-      <div className="loader">
-        <MoonLoader size={30} color="#7c3aed" />
+      <div className={"loader"}>
+        <MoonLoader size={30} color={theme === "dark" ? "#A78BFA" : "#7C3AED"} />
       </div>
     );
   }

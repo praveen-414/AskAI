@@ -3,7 +3,6 @@ import userModel from "../models/user.model.js";
 const currentUser = async (req, res) => {
   try {
     const userId = req.userId;
-        console.log("USER ID:", userId);
     const user = await userModel.findById(userId).select("-password");
     if (!user) {
       return res.status(404).json({

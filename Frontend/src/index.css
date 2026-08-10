@@ -22,47 +22,42 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--primary);
 }
 /* Light mode  */
 
 :root {
-  --background: #fafafa; /* Main app / chat page background */
-  --sidebar: #ffffff; /* Sidebar background */
-  --card: #ffffff; /* Cards, input container, modal background */
+  --background: #fafafa;
+  --sidebar: #ffffff;
+  --card: #ffffff;
+  --primary: #7c3aed;
+  --active-chat-bg: #ede9fe;
+  --active-chat-text: #18181b;
+  --user-bubble: #ede9fe;
+  --ai-bubble: #f4f4f5;
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
 
-  --primary: #7c3aed; /* Send button, active items, main buttons */
-  --accent: #06b6d4; /* AI icon, loading indicator, highlights */
+  --border: #e4e4e7;
+  --hover: #f4f4f5;
 
-  --user-bubble: #ede9fe; /* User message bubble background */
-  --ai-bubble: #f4f4f5; /* AI response bubble background */
-
-  --text-primary: #18181b; /* Headings, messages, main text */
-  --text-secondary: #71717a; /* Placeholder, timestamps, secondary text */
-
-  --border: #e4e4e7; /* Input, cards, sidebar borders */
-  --hover: #f4f4f5; /* Sidebar/chat history hover background */
-
-  --button-text: #ffffff; /* Text/icons inside primary buttons */
+  --button-text: #ffffff;
 }
 
 /* dark mode  */
 
-[data-theme="dark"] {
-  --background: #09090b; /* Main app / chat page background */
-  --sidebar: #18181b; /* Sidebar background */
-  --card: #27272a; /* Cards, input container, modal background */
-
-  --primary: #7c3aed; /* Send button, active items, main buttons */
-  --accent: #22d3ee; /* AI icon, loading indicator, highlights */
-
-  --user-bubble: #7c3aed; /* User message bubble background */
-  --ai-bubble: #27272a; /* AI response bubble background */
-
-  --text-primary: #fafafa; /* Headings, messages, main text */
-  --text-secondary: #a1a1aa; /* Placeholder, timestamps, secondary text */
-
-  --border: #3f3f46; /* Input, cards, sidebar borders */
-  --hover: #3f3f46; /* Sidebar/chat history hover background */
-
-  --button-text: #ffffff; /* Text/icons inside primary buttons */
+.dark {
+  --background: #09090b;
+  --sidebar: #18181b;
+  --card: #27272a;
+  --primary: #7c3aed;
+  --active-chat-bg: #4c3a70;
+  --active-chat-text: #ffffff;
+  --user-bubble: #3b2a5f;
+  --ai-bubble: #27272a;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --border: #3f3f46;
+  --hover: #3f3f46;
+  --button-text: #ffffff;
 }

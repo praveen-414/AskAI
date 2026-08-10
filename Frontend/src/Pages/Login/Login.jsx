@@ -8,14 +8,16 @@ import Button from "../../components/Button/Button";
 import { useState } from "react";
 import api from "../../config/axios";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../Redux/Slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import darkAuthImg from "../../assets/darkauthImg.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -30,13 +32,13 @@ const Login = () => {
         email,
         password,
       });
-      console.log(res);
+
       dispatch(setUser(res.data.userData));
       toast.success(res.data.message);
       navigate("/");
     } catch (error) {
       console.log(error);
-       toast.error(error.response?.data?.message || "Something went wrong!");
+      toast.error(error.response?.data?.message || "Something went wrong!");
     } finally {
       setLoading(false);
     }
@@ -47,7 +49,7 @@ const Login = () => {
       <div className={styles.loginContainer}>
         {/* left  */}
         <div className={styles.left}>
-          <img src={authImg} alt="" />
+          <img src={theme === "light" ? authImg : darkAuthImg} alt="" />
         </div>
         {/* right  */}
         <div className={styles.right}>
@@ -60,7 +62,7 @@ const Login = () => {
           <form onSubmit={handleLogin}>
             {/* email  */}
             <div>
-              <MdOutlineMail size={17} />
+              <MdOutlineMail size={17} className={styles.icons} />
 
               <input
                 value={email}
@@ -71,7 +73,7 @@ const Login = () => {
             </div>
             {/* password  */}
             <div>
-              <TbLockPassword size={17} />
+              <TbLockPassword size={17} className={styles.icons} />
 
               <input
                 value={password}
@@ -84,7 +86,11 @@ const Login = () => {
             <p>
               Don't have an account? <Link to="/signup">Signup</Link>
             </p>
-            <Button disabled={loading} type="submit" text={loading ? "Logging..." : "Login"} />
+            <Button
+              disabled={loading}
+              type="submit"
+              text={loading ? "Logging..." : "Login"}
+            />
           </form>
         </div>
       </div>

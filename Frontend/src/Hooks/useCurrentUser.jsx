@@ -5,7 +5,6 @@ import { setUser, setLoading } from "../Redux/Slices/userSlice";
 
 const useCurrentUser = () => {
   const { user } = useSelector((state) => state.user);
-  console.log(user);
   const dispatch = useDispatch();
 
   useEffect(() => {

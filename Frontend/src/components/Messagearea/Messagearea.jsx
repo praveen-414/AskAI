@@ -12,12 +12,14 @@ import {
 import logo from "../../assets/logoLightmode.png";
 import api from "../../config/axios";
 import { MoonLoader } from "react-spinners";
+import darklogo from "../../assets/darklogo.png"
 
 const Messagearea = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const { chats, selectedChatId } = useSelector((state) => state.messages);
+  const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const selectedChat = chats.find((chat) => chat.id === selectedChatId);
@@ -111,7 +113,7 @@ const Messagearea = () => {
             })}
             {loading && (
               <div className={styles.aiLoading}>
-                <MoonLoader size={15} />
+                <MoonLoader size={15} color={theme === "dark" ? "#A78BFA" : "#7C3AED"}/>
               </div>
             )}
 
@@ -140,7 +142,7 @@ const Messagearea = () => {
         <div className={styles.emptyContainer}>
           <div className={styles.welcomeSection}>
             <div className={styles.welcomeIcon}>
-              <img src={logo} alt="AskAI" />
+              <img src={theme === "light" ? logo : darklogo} alt="AskAI" />
             </div>
 
             <h1>How can I help you today?</h1>

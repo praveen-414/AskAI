@@ -2,26 +2,23 @@ import React, { useState } from "react";
 import styles from "../Sidebar/Sidebar.module.css";
 import logo from "../../assets/logoLightmode.png";
 import Button from "../Button/Button";
-
 import { IoIosSearch } from "react-icons/io";
 import { IoIosMenu, IoIosClose } from "react-icons/io";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import {
   deleteChat,
   newChat,
   setSelectedChatId,
 } from "../../Redux/Slices/messageSlice";
-
 import { AiTwotoneDelete } from "react-icons/ai";
-import { MdDarkMode, MdLogout } from "react-icons/md";
+import { MdDarkMode, MdLightMode, MdLogout } from "react-icons/md";
 import { LuMonitorSmartphone } from "react-icons/lu";
-
 import api from "../../config/axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../../Redux/Slices/userSlice";
+import { setTheme } from "../../Redux/Slices/themeSlice";
+import darklogo from "../../assets/darklogo.png";
 
 const Sidebar = () => {
   const [loggingOut, setLoggingOut] = useState(false);
@@ -32,6 +29,8 @@ const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const { user } = useSelector((state) => state.user);
+  const { theme } = useSelector((state) => state.theme);
+
   const { chats, selectedChatId } = useSelector((state) => state.messages);
 
   const dispatch = useDispatch();
@@ -106,7 +105,6 @@ const Sidebar = () => {
     try {
       const res = await api.delete(`/api/chat/${chatId}`);
 
-      console.log("Delete response:", res.data);
 
       dispatch(deleteChat(chatId));
 
@@ -127,7 +125,7 @@ const Sidebar = () => {
         </button>
 
         <div className={styles.mobileBrand}>
-          <img src={logo} alt="AskAI" />
+          <img src={theme === "light" ? logo : darklogo} alt="AskAI" />
         </div>
       </div>
 
@@ -146,7 +144,7 @@ const Sidebar = () => {
         {/* Logo */}
 
         <div className={styles.logoContainer}>
-          <img src={logo} alt="AskAI" />
+           <img src={theme === "light" ? logo : darklogo} alt="AskAI" />
         </div>
 
         {/* New Chat */}
@@ -160,7 +158,7 @@ const Sidebar = () => {
         {/* Search */}
 
         <div className={styles.searchContainer}>
-          <IoIosSearch size={20} />
+          <IoIosSearch size={20} className={styles.searchIcon} />
 
           <input
             value={search}
@@ -223,9 +221,21 @@ const Sidebar = () => {
               className={styles.profileMenu}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={styles.menuItem}>
-                <MdDarkMode size={18} />
-                Dark Mode
+              <div
+                className={styles.menuItem}
+                onClick={() => dispatch(setTheme())}
+              >
+                {theme === "light" ? (
+                  <>
+                    <MdDarkMode size={18} />
+                    Dark Mode
+                  </>
+                ) : (
+                  <>
+                    <MdLightMode size={18} />
+                    Light Mode
+                  </>
+                )}
               </div>
 
               <div className={styles.menuItem} onClick={logout}>

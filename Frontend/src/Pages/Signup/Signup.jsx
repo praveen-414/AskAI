@@ -9,9 +9,11 @@ import Button from "../../components/Button/Button";
 import { useState } from "react";
 import api from "../../config/axios";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../Redux/Slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import darkAuthImg from "../../assets/darkauthImg.png";
+
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -19,6 +21,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const { theme } = useSelector((state) => state.theme);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -42,7 +46,7 @@ const Signup = () => {
         email,
         password,
       });
-      console.log(res);
+    
       dispatch(setUser(res.data.userData));
       toast.success(res.data.message);
       navigate("/");
@@ -59,7 +63,7 @@ const Signup = () => {
       <div className={styles.signupContainer}>
         {/* left  */}
         <div className={styles.left}>
-          <img src={authImg} alt="" />
+          <img src={theme === "light" ? authImg : darkAuthImg} alt="" />
         </div>
         {/* right  */}
         <div className={styles.right}>
@@ -72,7 +76,7 @@ const Signup = () => {
           <form onSubmit={handleSignup}>
             {/* name  */}
             <div>
-              <FaRegUser size={17} />
+              <FaRegUser size={17} className={styles.icons}/>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -82,7 +86,7 @@ const Signup = () => {
             </div>
             {/* email  */}
             <div>
-              <MdOutlineMail size={17} />
+              <MdOutlineMail size={17} className={styles.icons}/>
 
               <input
                 value={email}
@@ -93,7 +97,7 @@ const Signup = () => {
             </div>
             {/* password  */}
             <div>
-              <TbLockPassword size={17} />
+              <TbLockPassword size={17} className={styles.icons}/>
 
               <input
                 value={password}
@@ -104,7 +108,7 @@ const Signup = () => {
             </div>
             {/* confrim password  */}
             <div>
-              <TbLockPassword size={17} />
+              <TbLockPassword size={17} className={styles.icons}/>
 
               <input
                 value={confirmPassword}

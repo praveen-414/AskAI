@@ -38,6 +38,16 @@
   padding: 40px;
 }
 
+.container .signupContainer .right p a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container .signupContainer .right .icons{
+  color: var(--text-primary);
+}
+
 .container .signupContainer .right p {
   font-size: 0.8rem;
   color: var(--text-secondary);
@@ -84,6 +94,7 @@
   outline: none;
   background: transparent;
   padding: 15px;
+  color: var(--text-primary);
 }
 
 /* responsiveness  */
