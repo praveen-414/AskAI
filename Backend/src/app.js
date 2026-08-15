@@ -11,7 +11,7 @@ connectDB();
 const app = express();
 app.use(
   cors({
-    origin: "https://frontend-do0j.onrender.com",
+    origin: "https://askai-9acc.onrender.com",
     credentials: true,
   })
 );
