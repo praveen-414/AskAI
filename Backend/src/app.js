@@ -17,7 +17,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-
+ 
 // routes
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
