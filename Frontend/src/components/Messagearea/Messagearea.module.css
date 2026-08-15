@@ -6,6 +6,8 @@
   flex-direction: column;
   overflow: hidden;
   box-sizing: border-box;
+  min-width: 0;
+  overflow-x: hidden;
 }
 .messageContainer .heading {
   padding: 15px 30px;

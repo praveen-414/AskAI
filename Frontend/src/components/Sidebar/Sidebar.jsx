@@ -26,7 +26,7 @@ const Sidebar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   // Sidebar starts open
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const { user } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);

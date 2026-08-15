@@ -2,6 +2,7 @@
   width: 100%;
   max-width: 850px;
   margin-bottom: 28px;
+    min-width: 0;    
 }
 
 .header {
@@ -24,6 +25,8 @@
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 20px 24px;
+   min-width: 0;          
+  box-sizing: border-box;
 }
 
 /* Markdown */
@@ -33,6 +36,8 @@
   color: var(--text-primary);
   font-size: 16px;
   line-height: 1.7;
+   min-width: 0;           
+  max-width: 100%;  
 }
 
 .markdown h1 {
@@ -104,6 +109,8 @@
 .markdown a {
   color: var(--primary);
   text-decoration: none;
+  overflow-wrap: break-word;  
+  word-break: break-all;      
 }
 
 .markdown hr {
