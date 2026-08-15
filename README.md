@@ -1,30 +1,36 @@
 # AskAI 🤖
 
-AskAI is a full-stack AI chat application built using the **MERN stack** and **LangGraph**.
+AskAI is a full-stack AI chat application built with the **MERN stack, LangChain, and LangGraph**. It provides an interactive AI conversation experience with memory, web search, chat history, and more.
 
-### Features
+## ✨ Features
 
-* AI-powered chat
-* Conversation memory
-* Web search
-* User authentication
-* Chat history
-* Markdown support
-* Dark & Light mode
-* Responsive UI
+* 🤖 AI-powered conversations
+* 🧠 Conversation memory
+* 🔍 Web search
+* 💬 Persistent chat history
+* 🔐 User authentication
+* 📝 Markdown support
+* 🌙 Dark & Light mode
+* 📱 Responsive design
 
-### Tech Stack
+## 🛠️ Tech Stack
 
-* React.js
-* Node.js
-* Express.js
-* MongoDB
-* Redux Toolkit
-* LangChain
-* LangGraph
+* **Frontend:** React.js, Redux Toolkit, React Router
+* **Backend:** Node.js, Express.js, MongoDB, Mongoose
+* **AI:** LangChain, LangGraph, LLM API, Tavily
 
-### 🚧 Status
+## 🚧 Status
 
-AskAI is **currently under development**. New features, improvements, and updates are being added regularly.
+AskAI is **currently under development**.
 
-More improvements are coming soon! 🚀
+The project is continuously being **improved, updated, and expanded** with new features and enhancements.
+
+## 🌐 Live Demo
+
+[Add your live demo link here]
+
+## 👨‍💻 Author
+
+**Praveen**
+
+Built while learning and exploring **MERN Stack, AI application development, LangChain, and LangGraph**.
