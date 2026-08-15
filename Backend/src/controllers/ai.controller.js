@@ -1,5 +1,6 @@
 import chatModel from "../models/chat.model.js";
-import llm from "../config/ai.js";
+import llm from "../services/ai.services.js";
+import chatGraph from "../graph/graph.js";
 
 const sendMessage = async (req, res) => {
   try {
@@ -24,15 +25,23 @@ const sendMessage = async (req, res) => {
         message: "Chat not found",
       });
     }
+    const previousMessages = chat.messages.map((message) => ({
+      role: message.role,
+      content: message.content,
+    }));
+    const result = await chatGraph.invoke({
+      messages: [
+        ...previousMessages,
+        {
+          role: "user",
+          content: input,
+        }, 
+      ],
+    });
 
-    const aiMsg = await llm.invoke([
-      {
-        role: "user",
-        content: input,
-      },
-    ]);
+    const lastMessage = result.messages[result.messages.length - 1];
 
-    const aiResponse = aiMsg.content;
+    const aiResponse = lastMessage.content;
 
     let title = chat.title;
 
