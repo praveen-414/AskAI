@@ -9,6 +9,6 @@ authRouter.post("/login",authController.login)
 authRouter.get("/logout",authController.logout)
 authRouter.get("/logout-all",authController.logoutAll)
 authRouter.get("/refresh-token",authController.getRefreshToken)
-
+ 
 
 export default authRouter;
