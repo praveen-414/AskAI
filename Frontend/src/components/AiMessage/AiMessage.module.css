@@ -2,22 +2,8 @@
   width: 100%;
   max-width: 850px;
   margin-bottom: 28px;
-    min-width: 0;    
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .content {
@@ -25,127 +11,48 @@
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 20px 24px;
-   min-width: 0;          
+  min-width: 0;
+  max-width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
-
-/* Markdown */
 
 .markdown {
   font-family: inherit;
   color: var(--text-primary);
   font-size: 16px;
   line-height: 1.7;
-   min-width: 0;           
-  max-width: 100%;  
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
 }
 
-.markdown h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0.8rem 0 0.5rem;
+/* Prevent long elements from pushing the message wider */
+.markdown img,
+.markdown video,
+.markdown iframe {
+  max-width: 100%;
+  height: auto;
 }
 
-.markdown h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin: 0.8rem 0 0.5rem;
-}
-
-.markdown h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 0.7rem 0 0.4rem;
-}
-
-.markdown p {
-  margin: 0.5rem 0;
-}
-
-.markdown ul,
-.markdown ol {
-  margin: 0.5rem 0;
-  padding-left: 1.4rem;
-}
-
-.markdown li {
-  margin: 0.3rem 0;
-}
-
-.markdown strong {
-  font-weight: 700;
-}
-
-.markdown code {
-  background: var(--ai-bubble);
-  padding: 2px 6px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: monospace;
-}
-
+/* Code blocks */
 .markdown pre {
-  background: var(--code-bg);
-  color: var(--text-primary);
-  padding: 14px;
-  border-radius: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
   overflow-x: auto;
-  margin: 0.8rem 0;
+  white-space: pre;
 }
 
-.markdown pre code {
-  background: transparent;
-  color: inherit;
-  padding: 0;
-}
-
-.markdown blockquote {
-  border-left: 4px solid var(--primary);
-  padding-left: 12px;
-  margin: 0.8rem 0;
-  color: var(--text-secondary);
-}
-
-.markdown a {
-  color: var(--primary);
-  text-decoration: none;
-  overflow-wrap: break-word;  
-  word-break: break-all;      
-}
-
-.markdown hr {
-  margin: 1rem 0;
-  border: none;
-  border-top: 1px solid var(--border);
-}
-
-.actions {
-  display: flex;
-  gap: 18px;
-  margin-top: 12px;
-  padding-left: 20px;
-}
-
-.actions svg {
-  cursor: pointer;
-  color: var(--text-secondary);
-  transition: 0.2s;
-}
-
-.actions svg:hover {
-  color: var(--primary);
-}
-
+/* Tables */
 .markdown table {
   width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   margin: 1rem 0;
-  overflow-x: auto;
-  display: block;
-}
-
-.markdown thead {
-  background: var(--card);
+  box-sizing: border-box;
 }
 
 .markdown th,
@@ -154,6 +61,11 @@
   padding: 12px;
   text-align: left;
   vertical-align: top;
+
+  /* Important for mobile */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .markdown th {
@@ -165,33 +77,12 @@
   background: var(--background);
 }
 
-/* Responsive */
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .aiMessage {
-    max-width: 90%;
-  }
-
-  .content {
-    padding: 18px 20px;
-  }
-
-  .markdown {
-    font-size: 15px;
-  }
-
-  .markdown h1 {
-    font-size: 1.7rem;
-  }
-
-  .markdown h2 {
-    font-size: 1.4rem;
-  }
-
-  .markdown h3 {
-    font-size: 1.2rem;
-  }
+/* Links */
+.markdown a {
+  color: var(--primary);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Mobile */
@@ -200,32 +91,26 @@
     width: 100%;
     max-width: 100%;
     margin-bottom: 22px;
-  }
-
-  .header {
-    gap: 8px;
-    margin-bottom: 8px;
-    font-size: 14px;
-  }
-
-  .avatar {
-    width: 34px;
-    height: 34px;
-    flex-shrink: 0;
+    box-sizing: border-box;
   }
 
   .content {
     width: 100%;
-    box-sizing: border-box;
+    max-width: 100%;
     padding: 15px 16px;
     border-radius: 14px;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .markdown {
+    width: 100%;
+    max-width: 100%;
     font-size: 14px;
     line-height: 1.6;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     word-break: break-word;
+    box-sizing: border-box;
   }
 
   .markdown h1 {
@@ -259,12 +144,15 @@
   .markdown code {
     font-size: 12px;
     padding: 2px 5px;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   /* Code block */
   .markdown pre {
+    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
     padding: 12px;
     border-radius: 8px;
     overflow-x: auto;
@@ -274,30 +162,30 @@
 
   .markdown pre code {
     white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
-  .markdown blockquote {
-    padding-left: 10px;
-    margin: 0.7rem 0;
-  }
-
-  /* Tables */
+  /* Mobile table */
   .markdown table {
-    width: max-content;
-    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
     font-size: 12px;
   }
 
   .markdown th,
   .markdown td {
     padding: 8px;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
-  /* Actions */
   .actions {
     gap: 15px;
     margin-top: 10px;
+    padding-left: 0;
   }
 
   .actions svg {
@@ -306,19 +194,10 @@
   }
 }
 
-/* Small Mobile */
+/* Small mobile */
 @media (max-width: 480px) {
   .aiMessage {
     margin-bottom: 18px;
-  }
-
-  .header {
-    font-size: 13px;
-  }
-
-  .avatar {
-    width: 30px;
-    height: 30px;
   }
 
   .content {
@@ -353,20 +232,30 @@
     border-radius: 7px;
   }
 
-  .markdown blockquote {
-    border-left-width: 3px;
-    padding-left: 8px;
+  .markdown table {
+    width: 100%;
+    max-width: 100%;
+    font-size: 11px;
+    table-layout: fixed;
   }
 
   .markdown th,
   .markdown td {
     padding: 7px;
     font-size: 11px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .markdown blockquote {
+    border-left-width: 3px;
+    padding-left: 8px;
   }
 
   .actions {
     gap: 13px;
-    padding-left: 20px;
+    padding-left: 0;
   }
 
   .actions svg {
