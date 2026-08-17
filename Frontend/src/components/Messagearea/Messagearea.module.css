@@ -28,7 +28,7 @@
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 .messageContainer > .inputContainer {
