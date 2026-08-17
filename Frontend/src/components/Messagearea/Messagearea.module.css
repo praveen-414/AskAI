@@ -47,6 +47,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
   margin: 8px auto 5px;
+  margin-bottom: 15px;
 }
 
 .messageContainer > .inputContainer:focus-within {
