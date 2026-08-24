@@ -7,7 +7,6 @@ import {
 import llm from "../services/ai.services.js";
 import { ToolNode } from "@langchain/langgraph/prebuilt";
 import { TavilySearch } from "@langchain/tavily";
-import { tool } from "@langchain/core/tools";
 import { z } from "zod";
 
 
