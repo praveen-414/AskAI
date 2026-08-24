@@ -10,7 +10,6 @@ import { TavilySearch } from "@langchain/tavily";
 import { tool } from "@langchain/core/tools";
 import { z } from "zod";
 
-
 const tavilyTool = new TavilySearch({
   maxResults: 5,
   topic: "general",
@@ -18,9 +17,9 @@ const tavilyTool = new TavilySearch({
 
 // Current time
 const getCurrentTime = tool(
-  () => {
-    return new Date().toLocaleString("en-IN", {
-      timeZone: "Asia/Kolkata",
+  ({ timeZone }) => {
+    return new Date().toLocaleString("en-US", {
+      timeZone,
       dateStyle: "full",
       timeStyle: "long",
     });
@@ -28,12 +27,16 @@ const getCurrentTime = tool(
   {
     name: "get_current_time",
     description:
-      "Get the current date and time in India. Use this whenever the user asks for the current time, current date, or what time/date it is now.",
-    schema: z.object({}),
-  }
+      "Get the current date and time for any location. Use this when the user asks for the current time in a city or country.",
+    schema: z.object({
+      timeZone: z
+        .string()
+        .describe("IANA timezone, such as Asia/Kolkata or America/New_York"),
+    }),
+  },
 );
 
-export const tools = [tavilyTool,getCurrentTime];
+export const tools = [tavilyTool, getCurrentTime];
 const toolNode = new ToolNode(tools);
 
 const llmWithTools = llm.bindTools(tools);
