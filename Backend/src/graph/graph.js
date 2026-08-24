@@ -7,10 +7,11 @@ import {
 import llm from "../services/ai.services.js";
 import { ToolNode } from "@langchain/langgraph/prebuilt";
 import { TavilySearch } from "@langchain/tavily";
+import { tool } from "@langchain/core/tools";
 import { z } from "zod";
 
 
-const tool = new TavilySearch({
+const tavilyTool = new TavilySearch({
   maxResults: 5,
   topic: "general",
 });
@@ -32,7 +33,7 @@ const getCurrentTime = tool(
   }
 );
 
-export const tools = [tool,getCurrentTime];
+export const tools = [tavilyTool,getCurrentTime];
 const toolNode = new ToolNode(tools);
 
 const llmWithTools = llm.bindTools(tools);
